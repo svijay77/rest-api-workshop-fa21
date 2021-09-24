@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_restful import Resource, Api
 
 events = {
@@ -24,29 +24,24 @@ events = {
 app = Flask(__name__)
 api = Api(app)
 
-class CrowdSourceBulk(Resource):
-    def get(self):
-        return events
+@app.get("/all")
+def get_all():
+    return events
 
-class CrowdSourceAPI(Resource):
-    def get(self, event_id: int):
-        return events[int(event_id)]
+@app.get("/event/<event_id>")
+def get_event(event_id: int):
+    return events[int(event_id)]
 
-    def post(self, event_id: int):
-        self.get
-        return events
+@app.post("/event")
+def new():
+    uid = max(events.keys()) + 1
+    events[uid] = request.json
+    return str(uid)
 
-    def delete(self, event_id: int):
-        return events
-
-    def patch(self, event_id: int):
-        return events        
-
-
-api.add_resource(CrowdSourceBulk, '/api/all')
-api.add_resource(CrowdSourceAPI, '/api/event/<event_id>')
-
-# api.add_resource(CrowdSourceAPI, '/event/<event_id>')
+@app.delete("/event/<event_id>")
+def delete(event_id: int):  # no error handling
+    del events[int(event_id)]
+    return "Deletion successful"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
