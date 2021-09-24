@@ -1,5 +1,4 @@
 from flask import Flask, request
-from flask_restful import Resource, Api
 from flask_cors import CORS
 
 events = {
@@ -24,7 +23,10 @@ events = {
 
 app = Flask(__name__)
 CORS(app)
-api = Api(app)
+
+@app.get("/")
+def get_default():
+    return {"message": "Welcome to OSAI"}
 
 @app.get("/all")
 def get_all():
