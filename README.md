@@ -13,7 +13,7 @@
 2. Go to [https://git-scm.org](https://git-scm.org) and install the latest version of git
 
 ## Commands
-1. Create a fork of this repo [https://github.com/open-source-at-illinois/rest-api-workshop-fa21](https://github.com/open-source-at-illinois/rest-api-workshop-fa21)
+1. Create a fork of this repo [https://github.com/open-source-at-illinois/rest-api-workshop-fa21](https://github.com/open-source-at-illinois/rest-api-workshop-fa21).
     #### Clone the forked repo
     ```
     git clone "https://github.com/your_username_/Project_Name.git" restapi
