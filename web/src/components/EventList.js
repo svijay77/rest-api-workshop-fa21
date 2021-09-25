@@ -3,9 +3,7 @@ import { Table } from "react-bootstrap";
 import '../App.css';
 import APIService from '../services/APIService';
 
-const App = () => {
-
-    const [events, setEvents] = useState({})
+const EventList = ({events, setEvents}) => {
 
     useEffect(() => {
         APIService.getEvents()
@@ -14,7 +12,9 @@ const App = () => {
                 setEvents(eventList)
             })
     }, []);
-
+    if(!events) {
+        return  <></>
+    }
     const ids = Object.keys(events);
     return (
         <div>
@@ -46,4 +46,4 @@ const App = () => {
     )
 }
 
-export default App;
+export default EventList;

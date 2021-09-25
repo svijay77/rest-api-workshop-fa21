@@ -1,19 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App';
+import EventList from './components/EventList';
 import NewEventForm from './components/NewEventForm';
 import NavBar from './components/NavBar';
 import reportWebVitals from './reportWebVitals';
 import {Container} from "react-bootstrap";
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <NavBar/>
-    <Container>
-      <NewEventForm/>
-      <App />
-    </Container>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

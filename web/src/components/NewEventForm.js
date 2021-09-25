@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Col, Form, InputGroup, Row, Button } from "react-bootstrap";
 import APIService from '../services/APIService';
 
-const NewEventForm = () => {
+const NewEventForm = ({showMessage}) => {
     const [name, setName] = useState("")
     const [location, setLocation] = useState("")
     const [date, setDate] = useState("")
@@ -30,6 +30,7 @@ const NewEventForm = () => {
 
         APIService.createEvent(newEvent)
             .catch(error => console.log('Something went wrong!', error));
+        showMessage('Added new event', false)    
         setName('');
         setLocation('');
         setDate('');
