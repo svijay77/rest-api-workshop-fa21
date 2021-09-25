@@ -8,8 +8,12 @@ const NewEventForm = () => {
     const [category, setCategory] = useState("")
 
     // TODO: Make API POST call
+    // TODO: Make Category a dropdown
     return (
         <>
+            <h4 style={{color: "white", fontFamily: "arial"}}>
+                Add a new Event
+            </h4>
             <Row>
                 <InputGroup as={Col}>
                     <InputGroup.Prepend>
@@ -31,7 +35,7 @@ const NewEventForm = () => {
                 </InputGroup>
                 <InputGroup as={Col}>    
                     <InputGroup.Prepend>
-                        <InputGroup.Text id="Date">Date</InputGroup.Text>
+                        <InputGroup.Text id="Date">Time</InputGroup.Text>
                     </InputGroup.Prepend>
                     <Form.Control name = "Date" value={date} onChange={e=>{
                         e.preventDefault();
@@ -50,7 +54,7 @@ const NewEventForm = () => {
                 {/* <button type="submit" class="btn btn-primary" onClick={setName(name), setLocation(location), setDate(date), setTime(time), setCategory(category)}>Save</button> */}
                 <Button type="submit">Save</Button>
             </Row>
-            <br/>
+            <hr style={{color:"white", backgroundColor: "white"}}/>
         </>
     )
 }
