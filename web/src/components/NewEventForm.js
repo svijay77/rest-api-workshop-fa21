@@ -10,8 +10,14 @@ const NewEventForm = ({showMessage}) => {
 
     const onSaveClick = (event) => {
         event.preventDefault();
-        if (name === '') return;
-        if (location === '') return;
+        if (name === '') {
+            showMessage('Name cannot be empty', true);
+            return;
+        }
+        if (location === '') {
+            showMessage('Location cannot be empty', true);
+            return;
+        }
 
         const newEvent = { name, location, date, category };
         // TODO: PUT Request
@@ -29,8 +35,8 @@ const NewEventForm = ({showMessage}) => {
         // }
 
         APIService.createEvent(newEvent)
-            .catch(error => console.log('Something went wrong!', error));
-        showMessage('Added new event', false)    
+            .then(e => showMessage('Added new event', false))
+            .catch(error => showMessage('Something went wrong!', true));    
         setName('');
         setLocation('');
         setDate('');

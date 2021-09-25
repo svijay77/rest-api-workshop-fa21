@@ -1,19 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table } from "react-bootstrap";
 import '../App.css';
 import APIService from '../services/APIService';
 
 const EventList = ({events, setEvents}) => {
 
+    const [apiErrored, setApiErrored] = useState(false);
+    
     useEffect(() => {
         APIService.getEvents()
             .then(eventList => {
-                console.log(eventList)
-                setEvents(eventList)
+                // console.log(eventList)
+                setApiErrored(false);
+                setEvents(eventList);
             })
+            .catch(err => setApiErrored(true));
     }, [setEvents]);
     if(!events) {
-        return  <></>
+        return  (
+        <h4 style={{ color: apiErrored? "red" : "white", fontFamily: "arial" }}>
+            {apiErrored? 'Could not reach the API' : 'No Events Found'}
+        </h4>
+        );
     }
     const ids = Object.keys(events);
     return (
