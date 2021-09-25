@@ -41,7 +41,9 @@ def get_event(event_id: int):
 
 @app.post("/event")
 def new():
-    uid = max(events.keys()) + 1
+    uid = 0
+    if len(events) != 0:  
+        uid = max(events.keys()) + 1
     events[uid] = request.json
     events[uid]['id'] = uid
     return str(uid)
