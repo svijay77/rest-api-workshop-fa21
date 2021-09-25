@@ -1,14 +1,24 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Table} from "react-bootstrap";
 import '../App.css';
+import APIService from '../services/APIService';
 
 const App = () => {
-    const events = {
+    const default_events = {
         "0" : {name:"Open-Source@Illinois", location:"Siebel", date:"09/25/2021", time:"4:00 PM", category:"Workshop"},
-        "1" : {name:"Open-Source@Illinois", location:"Siebel", date:"09/25/2021", time:"4:00 PM", category:"Workshop1"},
+        "1" : {name:"Open-Source", location:"Siebel", date:"09/25/2021", time:"4:00 PM", category:"Workshop1"},
     }
 
-    // TODO: Pull events from API
+    const [events, setEvents] = useState(default_events)
+
+
+    useEffect(() => {
+        APIService.getEvents()
+            .then(eventList => {
+                console.log(eventList)
+                setEvents(eventList)
+            })
+    }, []);
 
     const ids = Object.keys(events);
     return (

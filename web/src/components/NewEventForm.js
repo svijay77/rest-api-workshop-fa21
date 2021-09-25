@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Col, Form, InputGroup, Row} from "react-bootstrap";
+import {Col, Form, InputGroup, Row, Button} from "react-bootstrap";
 
 const NewEventForm = () => {
     const [name, setName] = useState("")
@@ -48,7 +48,7 @@ const NewEventForm = () => {
                     }}/>
                 </InputGroup>
                 {/* <button type="submit" class="btn btn-primary" onClick={setName(name), setLocation(location), setDate(date), setTime(time), setCategory(category)}>Save</button> */}
-                <button type="submit" class="btn btn-primary">Save</button>
+                <Button type="submit">Save</Button>
             </Row>
             <br/>
         </>
