@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Col, Form, InputGroup, Row, Button } from "react-bootstrap";
 import APIService from '../services/APIService';
 
-const NewEventForm = ({showMessage}) => {
+const NewEventForm = ({showMessage, events, setEvents}) => {
     const [name, setName] = useState("")
     const [location, setLocation] = useState("")
     const [date, setDate] = useState("")
@@ -10,27 +10,35 @@ const NewEventForm = ({showMessage}) => {
 
     const onSaveClick = (event) => {
         event.preventDefault();
-        if (name === '') return;
-        if (location === '') return;
+        if (name === '') {
+            showMessage('Name cannot be empty', true);
+            return;
+        }
+        if (location === '') {
+            showMessage('Location cannot be empty', true);
+            return;
+        }
 
-        const newEvent = { name, location, date, category };
-        // TODO: PUT Request
-        // const existingEvent = props.events.find(p => p.name === name);
-        // if (existingEvent !== undefined) {
-        //     if (window.confirm(`${name} already exists in the phone book, update their info?`)) {
-        //         APIService.updateEvent(newPerson)
-        //             .then(responsePerson => setPhonebook(
-        //                 phonebook.filter(p => p.id !== existingPerson.id)
-        //                     .concat(responsePerson)))
-        //             .catch(error => setMessage(error.response.data.error, true));
-        //         setShowForm(false);
-        //     }
-        //     return;
-        // }
+        const ids = Object.keys(events);
+        const existingEventId = ids.find(id => events[id].name === name);
+        const existingEvent = events[existingEventId];
+        const newEvent = { name, location, date, category, id: existingEventId };
+        if (existingEvent !== undefined) {
+            if (window.confirm(`${name} already exists, update its info?`)) {
+                APIService.updateEvent(newEvent)
+                    .then(responseEvent => {
+                            showMessage('Updated event!', false); 
+                        })
+                    .catch(error => showMessage(error.response.data.error, true));
+            }
+            return;
+        }
 
         APIService.createEvent(newEvent)
-            .catch(error => console.log('Something went wrong!', error));
-        showMessage('Added new event', false)    
+            .then(e => {
+                showMessage('Added new event', false)
+            })
+            .catch(error => showMessage('Something went wrong!', true));    
         setName('');
         setLocation('');
         setDate('');

@@ -17,8 +17,8 @@ const deleteEvent = (id) => {
     return promise.then(response => response.status)
 };
 
-const updateEvent = (person) => {
-    const promise = axios.put(`${baseUrl}/event/${person.id}`, person);
+const updateEvent = (event) => {
+    const promise = axios.put(`${baseUrl}/event/${event.id}`, event);
     return promise.then(response => response.data)
 };
 
