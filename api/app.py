@@ -6,19 +6,22 @@ events = {
             "name" : "event1",
             "category" : "food", 
             "date" : "UTC ",
-            "quantity": 10
+            "location": "alma mater",
+            "quantity": 15
         }, 
         1 : {
             "name" : "event2",
             "category" : "food", 
             "date" : "UTC ",
-            "quantity": 10
+            "location": "alma mater",
+            "quantity": 69
         },
         2 : {
             "name" : "event3",
             "category" : "food", 
             "date" : "UTC ",
-            "quantity": 10
+            "location": "alma mater",
+            "quantity": 420
         }}
 
 app = Flask(__name__)
