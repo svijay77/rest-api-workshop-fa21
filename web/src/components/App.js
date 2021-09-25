@@ -26,7 +26,6 @@ const App = () => {
             <Table striped hover variant="dark">
                 <thead>
                 <tr>
-                    <th>#</th>
                     <th>Name</th>
                     <th>Location</th>
                     <th>Date</th>
@@ -38,7 +37,6 @@ const App = () => {
                     ids.map(id => events[id])
                        .map(event =>
                             <tr key={event.id}>
-                                <th>{event.id}</th>
                                 <td>{event.name}</td>
                                 <td>{event.location}</td>
                                 <td>{event.date}</td>
