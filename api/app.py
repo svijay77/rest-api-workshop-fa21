@@ -33,30 +33,23 @@ def get_default():
 
 @app.get("/all")
 def get_all():
-    return events
+    // Your code goes here
 
 @app.get("/event/<event_id>")
 def get_event(event_id: int):
-    return events[int(event_id)]
+    // Your code goes here
 
 @app.post("/event")
 def new():
-    uid = 0
-    if len(events) != 0:  
-        uid = max(events.keys()) + 1
-    events[uid] = request.json
-    events[uid]['id'] = uid
-    return str(uid)
+    // Your code goes here
 
 @app.put("/event/<event_id>")
 def update(event_id: int):
-    events[int(event_id)] = request.json
-    return events[int(event_id)]    
+    // Your code goes here   
 
 @app.delete("/event/<event_id>")
 def delete(event_id: int):  # no error handling
-    del events[int(event_id)]
-    return "Deletion successful"
+    // Your code goes here
 
 if __name__ == '__main__':
     app.run()
