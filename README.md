@@ -10,7 +10,7 @@
 
 ## Installation and setup
 1. Go to https://www.python.org/downloads/ and download the latest version of Python with pip for your OS.
-2. To Install flask do `pip install Flask`
+2. Go to https://git-scm.org and install the latest version of git
 
 ## Commands
 1. Create a fork of this repo https://github.com/open-source-at-illinois/rest-api-workshop-fa21
@@ -20,10 +20,28 @@
     cd restapi/api
     ```
 
-    #### Start the flask server
+    #### Install the required dependencies and Start the flask server
 
     ```
     pip install -r requirements.txt
     set FLASK_ENV=development
     flask run
     ```
+ ## TO DO
+ 1. Use this website https://rest-api-workshop-fa21.vercel.app/ to check the functionality of your API
+ 2. Write the 5 HTTP methods in `api/app.py`
+    * get(“/”) - returns a key-value pair, with key "message" and value "Welcome to OSAI"
+            *TIP: Refer to slide 14  
+    * get(“/all”) - returns events currently stored in the API
+    * post(“/event”) - Adds an event to the end of the events dictionary stored in the API
+            * `request.json` contains the data you add in the form
+            * puts the data into a new key-value pair in events
+            * returns the index in string format  
+    * put(“/event/<event_id>”)
+            * takes in 1 argument called event_id of int type
+            * adds the data in `request.json` to events and returns it 
+    * delete(“/event/<event_id>”)
+            * takes in 1 argument called event_id of int type
+            * deletes the key-value pair with the id passed in
+            * returns a "Deletion Successful" message
+   
