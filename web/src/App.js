@@ -15,57 +15,6 @@ const App = () => {
     // events.push(event);
     return (
         <div>
-            <Row>
-                <InputGroup as={Col}>
-                    <InputGroup.Prepend>
-                        <InputGroup.Text id="Name">Name</InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <Form.Control name = "Name"  value={name} onChange={e=>{
-                        e.preventDefault();
-                        setName(e.target.value);
-                    }}/>
-                </InputGroup>
-                <InputGroup as={Col}>    
-                    <InputGroup.Prepend>
-                        <InputGroup.Text id="Location">Location</InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <Form.Control name = "location" value={location} onChange={e=>{
-                        e.preventDefault();
-                        setLocation(e.target.value);
-                    }}/>
-                </InputGroup>
-                <InputGroup as={Col}>    
-                    <InputGroup.Prepend>
-                        <InputGroup.Text id="Date">Date</InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <Form.Control name = "Date" value={date} onChange={e=>{
-                        e.preventDefault();
-                        setDate(e.target.value);
-                    }}/>
-                </InputGroup>
-                {/* <InputGroup as={Col}>    
-                    <InputGroup.Prepend>
-                        <InputGroup.Text id="Time">Time</InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <Form.Control name = "Time" value={time} onChange={e=>{
-                        e.preventDefault();
-                        setTime(e.target.value);
-                    }}/>
-                </InputGroup> */}
-                <InputGroup as={Col}>    
-                    <InputGroup.Prepend>
-                        <InputGroup.Text id="Category">Category</InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <Form.Control name = "Category" value={category} onChange={e=>{
-                        e.preventDefault();
-                        setCategory(e.target.value);
-                    }}/>
-                </InputGroup>
-                {/* <button type="submit" class="btn btn-primary" onClick={setName(name), setLocation(location), setDate(date), setTime(time), setCategory(category)}>Save</button> */}
-                <button type="submit" class="btn btn-primary">Save</button>
-
-            </Row>
-            <br/>
             <Table striped hover variant="dark">
                 <thead>
                 <tr>
