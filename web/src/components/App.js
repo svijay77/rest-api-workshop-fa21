@@ -4,13 +4,8 @@ import '../App.css';
 import APIService from '../services/APIService';
 
 const App = () => {
-    const default_events = {
-        "0": { name: "Open-Source@Illinois", location: "Siebel", date: "09/25/2021", time: "4:00 PM", category: "Workshop", quantity: 10 },
-        "1": { name: "Open-Source", location: "Siebel", date: "09/25/2021", time: "4:00 PM", category: "Workshop1", quantity: 69 },
-    }
 
-    const [events, setEvents] = useState(default_events)
-
+    const [events, setEvents] = useState({})
 
     useEffect(() => {
         APIService.getEvents()
@@ -30,7 +25,6 @@ const App = () => {
                         <th>Location</th>
                         <th>Date / Time</th>
                         <th>Category</th>
-                        <th>Quantity</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,7 +36,6 @@ const App = () => {
                                     <td>{event.location}</td>
                                     <td>{event.date}</td>
                                     <td>{event.category}</td>
-                                    <td>{event.quantity}</td>
                                 </tr>
                             )
                     }
