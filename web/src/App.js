@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Badge, Col, Form, InputGroup, Row, Table} from "react-bootstrap";
+import {Table} from "react-bootstrap";
 import './App.css';
 
 const App = () => {
@@ -25,9 +25,8 @@ const App = () => {
                 </thead>
                 <tbody>
                 {
-                    ids.map((id) => {
-                        const event = events[id]
-                        return (
+                    ids.map(id => events[id])
+                       .map(event =>
                             <tr key={event.id}>
                                 <th>{event.id}</th>
                                 <td>{event.name}</td>
@@ -36,7 +35,6 @@ const App = () => {
                                 <td>{event.category}</td>
                             </tr>
                         )
-                    })
                 }
                 </tbody>
             </Table>
