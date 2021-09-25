@@ -3,16 +3,14 @@ import {Badge, Col, Form, InputGroup, Row, Table} from "react-bootstrap";
 import './App.css';
 
 const App = () => {
-    const events = [
-        {name:"Open-Source@Illinois", location:"Siebel", date:"09/25/2021", time:"4:00 PM", category:"Workshop"}
-    ]
-    const [name, setName] = useState("")
-    const [location, setLocation] = useState("")
-    const [date, setDate] = useState("")
-    // const [time, setTime] = useState("")
-    const [category, setCategory] = useState("")
-    // let event = {name: name, location: location, date: date, time: time, category: category};
-    // events.push(event);
+    const events = {
+        "0" : {name:"Open-Source@Illinois", location:"Siebel", date:"09/25/2021", time:"4:00 PM", category:"Workshop"},
+        "1" : {name:"Open-Source@Illinois", location:"Siebel", date:"09/25/2021", time:"4:00 PM", category:"Workshop1"},
+    }
+
+    // TODO: Pull events from API
+
+    const ids = Object.keys(events);
     return (
         <div>
             <Table striped hover variant="dark">
@@ -26,15 +24,20 @@ const App = () => {
                 </tr>
                 </thead>
                 <tbody>
-                {events.map(event =>
-                    <tr key={event.id}>
-                        <th>{event.id}</th>
-                        <td>{event.name}</td>
-                        <td>{event.location}</td>
-                        <td>{event.date}</td>
-                        <td>{event.category}</td>
-                    </tr>
-                )}
+                {
+                    ids.map((id) => {
+                        const event = events[id]
+                        return (
+                            <tr key={event.id}>
+                                <th>{event.id}</th>
+                                <td>{event.name}</td>
+                                <td>{event.location}</td>
+                                <td>{event.date}</td>
+                                <td>{event.category}</td>
+                            </tr>
+                        )
+                    })
+                }
                 </tbody>
             </Table>
         </div>

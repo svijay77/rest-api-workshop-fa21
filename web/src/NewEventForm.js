@@ -1,17 +1,11 @@
 import React, {useState} from 'react';
-import {Badge, Col, Form, InputGroup, Row, Table} from "react-bootstrap";
+import {Col, Form, InputGroup, Row} from "react-bootstrap";
 
 const NewEventForm = () => {
-    const events = [
-        {name:"Open-Source@Illinois", location:"Siebel", date:"09/25/2021", time:"4:00 PM", category:"Workshop"}
-    ]
     const [name, setName] = useState("")
     const [location, setLocation] = useState("")
     const [date, setDate] = useState("")
-    // const [time, setTime] = useState("")
     const [category, setCategory] = useState("")
-    // let event = {name: name, location: location, date: date, time: time, category: category};
-    // events.push(event);
 
     // TODO: Make API POST call
     return (
@@ -44,15 +38,6 @@ const NewEventForm = () => {
                         setDate(e.target.value);
                     }}/>
                 </InputGroup>
-                {/* <InputGroup as={Col}>    
-                    <InputGroup.Prepend>
-                        <InputGroup.Text id="Time">Time</InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <Form.Control name = "Time" value={time} onChange={e=>{
-                        e.preventDefault();
-                        setTime(e.target.value);
-                    }}/>
-                </InputGroup> */}
                 <InputGroup as={Col}>    
                     <InputGroup.Prepend>
                         <InputGroup.Text id="Category">Category</InputGroup.Text>
