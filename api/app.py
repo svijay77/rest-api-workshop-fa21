@@ -3,18 +3,21 @@ from flask_cors import CORS
 
 events = {
         0 : {
+            "id" : 0,
             "name" : "event1",
             "category" : "food", 
             "location" : "alma",
             "date" : "UTC ",
         }, 
         1 : {
+            "id" : 1,
             "name" : "event2",
             "category" : "food", 
             "date" : "UTC ",
             "location" : "alma",
         },
         2 : {
+            "id" : 2,
             "name" : "event3",
             "category" : "food",
             "location" : "alma", 

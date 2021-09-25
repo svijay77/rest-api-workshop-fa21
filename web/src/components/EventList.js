@@ -16,6 +16,8 @@ const EventList = ({events, setEvents}) => {
             })
             .catch(err => setApiErrored(true));
     }, [setEvents]);
+
+    useEffect(() => {}, [events])
     if(!events) {
         return  (
         <h4 style={{ color: apiErrored? "red" : "white", fontFamily: "arial" }}>
@@ -29,6 +31,7 @@ const EventList = ({events, setEvents}) => {
             <Table striped hover variant="dark">
                 <thead>
                     <tr>
+                        <th> ID </th>
                         <th>Name</th>
                         <th>Location</th>
                         <th>Date / Time</th>
@@ -40,6 +43,7 @@ const EventList = ({events, setEvents}) => {
                         ids.map(id => events[id])
                             .map(event =>
                                 <tr key={event.id}>
+                                    <td>{event.id}</td>
                                     <td>{event.name}</td>
                                     <td>{event.location}</td>
                                     <td>{event.date}</td>
