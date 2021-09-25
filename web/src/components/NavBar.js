@@ -6,12 +6,14 @@ const NavBar = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
                 <Navbar.Brand>
-                    OSAI
+                    Open-Source at Illinois
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                     <Nav className="justify-content-end">
-                        <Nav.Link href="#" as="span">Home</Nav.Link>
+                    <Navbar.Text>
+                        <a href="https://www.opensourceatillinois.com">Home</a>
+                    </Navbar.Text>
                     </Nav>
                 </Navbar.Collapse>
         </Navbar>

@@ -5,7 +5,7 @@ import App from './components/App';
 import NewEventForm from './components/NewEventForm';
 import NavBar from './components/NavBar';
 import reportWebVitals from './reportWebVitals';
-import {Container, Nav} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 
 ReactDOM.render(
   <React.StrictMode>
