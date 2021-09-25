@@ -19,7 +19,6 @@ const NewEventForm = ({showMessage, events, setEvents}) => {
             return;
         }
 
-        // TODO: PUT Request
         const ids = Object.keys(events);
         const existingEventId = ids.find(id => events[id].name === name);
         const existingEvent = events[existingEventId];
@@ -29,8 +28,6 @@ const NewEventForm = ({showMessage, events, setEvents}) => {
                 APIService.updateEvent(newEvent)
                     .then(responseEvent => {
                             showMessage('Updated event!', false); 
-                            // setEvents( events.filter(p => p.id !== existingEventId)
-                            //             .concat(responseEvent)
                         })
                     .catch(error => showMessage(error.response.data.error, true));
             }
@@ -38,7 +35,9 @@ const NewEventForm = ({showMessage, events, setEvents}) => {
         }
 
         APIService.createEvent(newEvent)
-            .then(e => showMessage('Added new event', false))
+            .then(e => {
+                showMessage('Added new event', false)
+            })
             .catch(error => showMessage('Something went wrong!', true));    
         setName('');
         setLocation('');
