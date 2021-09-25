@@ -43,7 +43,13 @@ def get_event(event_id: int):
 def new():
     uid = max(events.keys()) + 1
     events[uid] = request.json
+    events[uid]['id'] = uid
     return str(uid)
+
+@app.put("/event/<event_id>")
+def update(event_id: int):
+    events[int(event_id)] = request.json
+    return events[int(event_id)]    
 
 @app.delete("/event/<event_id>")
 def delete(event_id: int):  # no error handling

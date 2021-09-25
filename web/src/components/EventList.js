@@ -17,7 +17,16 @@ const EventList = ({events, setEvents}) => {
             .catch(err => setApiErrored(true));
     }, [setEvents]);
 
-    useEffect(() => {}, [events])
+    // useEffect(() => {
+    //     APIService.getEvents()
+    //         .then(eventList => {
+    //             // console.log(eventList)
+    //             setApiErrored(false);
+    //             setEvents(eventList);
+    //         })
+    //         .catch(err => setApiErrored(true));
+    // }, [events])
+
     if(!events) {
         return  (
         <h4 style={{ color: apiErrored? "red" : "white", fontFamily: "arial" }}>

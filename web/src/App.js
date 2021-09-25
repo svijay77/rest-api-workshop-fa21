@@ -22,7 +22,7 @@ const App = () => {
             <NavBar />
             <Container>
                 <Notification message={message} />
-                <NewEventForm showMessage={showMessage} />
+                <NewEventForm showMessage={showMessage} events={events} setEvents={setEvents} />
                 <EventList events={events} setEvents={setEvents} showMessage={showMessage} />
             </Container>
         </>
