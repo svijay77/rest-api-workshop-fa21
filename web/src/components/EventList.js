@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Table } from "react-bootstrap";
 import '../App.css';
 import APIService from '../services/APIService';
@@ -11,7 +11,7 @@ const EventList = ({events, setEvents}) => {
                 console.log(eventList)
                 setEvents(eventList)
             })
-    }, []);
+    }, [setEvents]);
     if(!events) {
         return  <></>
     }
