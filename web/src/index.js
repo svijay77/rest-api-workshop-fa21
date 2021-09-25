@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import NewEventForm from './NewEventForm';
-import NavBar from './NavBar';
+import App from './components/App';
+import NewEventForm from './components/NewEventForm';
+import NavBar from './components/NavBar';
 import reportWebVitals from './reportWebVitals';
 import {Container, Nav} from "react-bootstrap";
 
