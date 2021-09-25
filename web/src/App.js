@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import React, {useState} from 'react';
 import {Badge, Col, Form, InputGroup, Row, Table} from "react-bootstrap";
 import './App.css';
@@ -7,13 +6,13 @@ const App = () => {
     const events = [
         {name:"Open-Source@Illinois", location:"Siebel", date:"09/25/2021", time:"4:00 PM", category:"Workshop"}
     ]
-    const [name_, setName] = useState("")
-    const [location_, setLocation] = useState("")
-    const [date_, setDate] = useState("")
-    const [time_, setTime] = useState("")
-    const [category_, setCategory] = useState("")
-    let event = {name: name_, location: location_, date: date_, time: time_, category: category_};
-    events.push(event);
+    const [name, setName] = useState("")
+    const [location, setLocation] = useState("")
+    const [date, setDate] = useState("")
+    // const [time, setTime] = useState("")
+    const [category, setCategory] = useState("")
+    // let event = {name: name, location: location, date: date, time: time, category: category};
+    // events.push(event);
     return (
         <div>
             <Row>
@@ -21,28 +20,48 @@ const App = () => {
                     <InputGroup.Prepend>
                         <InputGroup.Text id="Name">Name</InputGroup.Text>
                     </InputGroup.Prepend>
-                    <Form.Control name = "event" placeholder="Name" value={name_} onChange={e=>{
+                    <Form.Control name = "Name"  value={name} onChange={e=>{
                         e.preventDefault();
-                        setName(e.target.value)
+                        setName(e.target.value);
                     }}/>
+                </InputGroup>
+                <InputGroup as={Col}>    
                     <InputGroup.Prepend>
                         <InputGroup.Text id="Location">Location</InputGroup.Text>
                     </InputGroup.Prepend>
-                    <Form.Control name = "event" placeholder="Location" value="location_"/>
+                    <Form.Control name = "location" value={location} onChange={e=>{
+                        e.preventDefault();
+                        setLocation(e.target.value);
+                    }}/>
+                </InputGroup>
+                <InputGroup as={Col}>    
                     <InputGroup.Prepend>
                         <InputGroup.Text id="Date">Date</InputGroup.Text>
                     </InputGroup.Prepend>
-                    <Form.Control name = "event" placeholder="Date" value="date_"/>
+                    <Form.Control name = "Date" value={date} onChange={e=>{
+                        e.preventDefault();
+                        setDate(e.target.value);
+                    }}/>
+                </InputGroup>
+                {/* <InputGroup as={Col}>    
                     <InputGroup.Prepend>
                         <InputGroup.Text id="Time">Time</InputGroup.Text>
                     </InputGroup.Prepend>
-                    <Form.Control name = "event" placeholder="Time" value="time_"/>
+                    <Form.Control name = "Time" value={time} onChange={e=>{
+                        e.preventDefault();
+                        setTime(e.target.value);
+                    }}/>
+                </InputGroup> */}
+                <InputGroup as={Col}>    
                     <InputGroup.Prepend>
                         <InputGroup.Text id="Category">Category</InputGroup.Text>
                     </InputGroup.Prepend>
-                    <Form.Control name = "event" placeholder="Category" value="category_"/>
+                    <Form.Control name = "Category" value={category} onChange={e=>{
+                        e.preventDefault();
+                        setCategory(e.target.value);
+                    }}/>
                 </InputGroup>
-                {/* <button type="submit" class="btn btn-primary" onClick={setName(name_), setLocation(location_), setDate(date_), setTime(time_), setCategory(category_)}>Save</button> */}
+                {/* <button type="submit" class="btn btn-primary" onClick={setName(name), setLocation(location), setDate(date), setTime(time), setCategory(category)}>Save</button> */}
                 <button type="submit" class="btn btn-primary">Save</button>
 
             </Row>
@@ -54,7 +73,6 @@ const App = () => {
                     <th>Name</th>
                     <th>Location</th>
                     <th>Date</th>
-                    <th>Time</th>
                     <th>Category</th>
                 </tr>
                 </thead>
@@ -65,7 +83,6 @@ const App = () => {
                         <td>{event.name}</td>
                         <td>{event.location}</td>
                         <td>{event.date}</td>
-                        <td>{event.time}</td>
                         <td>{event.category}</td>
                     </tr>
                 )}
